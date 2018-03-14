@@ -65,7 +65,7 @@ function changeImageUrl(s) {
 	return IMG_URL + filename + '?h=' + img_hash;
 }
 
-$('img').map((i, el) => {
+$('img, source').map((i, el) => {
 	var $el = $(el);
 
 	var src = $el.attr('src');
