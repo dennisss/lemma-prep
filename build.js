@@ -65,7 +65,7 @@ function changeImageUrl(s) {
 	return IMG_URL + filename + '?h=' + img_hash;
 }
 
-$('img, source').map((i, el) => {
+function imgMapper(i, el) {
 	var $el = $(el);
 
 	var src = $el.attr('src');
@@ -80,7 +80,9 @@ $('img, source').map((i, el) => {
 
 		$el.attr('srcset', parts.join(' '));
 	}
-})
+}
+$('img').map(imgMapper);
+$('source').map(imgMapper);
 child_process.execSync('cp -r public/img out/')
 
 
@@ -166,4 +168,4 @@ var html = htmlminify($.html(), {
 fs.writeFileSync(__dirname + '/out/index.html', html);
 
 console.log('Copying to gcs')
-child_process.execSync('gsutil -m cp -z html,js,css -r out/* gs://lm-assets/prep/')
+child_process.execSync('gsutil -m cp -z html,js,css,svg -r out/* gs://lm-assets/prep/')

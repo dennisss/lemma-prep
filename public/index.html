@@ -13,9 +13,10 @@
 	<meta property="og:image" content="https://www.lem.ma/prep/images/og_img.jpg">
 	<title>Lemma Math Tutor</title>
 
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700,700i&subset=greek,latin" rel="stylesheet" type="text/css">
-
+	<noscript id="deferred-styles">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700,700i&subset=greek,latin" rel="stylesheet" type="text/css">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	</noscript>
 	<link href="/prep/css/normalize.css" rel="stylesheet" type="text/css">
 	<link href="/prep/css/webflow.css" rel="stylesheet" type="text/css">
 	<link href="/prep/css/prep.webflow.css" rel="stylesheet" type="text/css">
@@ -77,11 +78,11 @@
 		<div class="w-container">
 			<h2 class="heading-10">Our Partners</h2>
 			<div>
-				<a href="https://www.philadelphiafutures.org/" target="_blank">
-					<img src="/prep/img/philly-futures-logo.png" width="178" class="partner-image" data-ix="icon-grow">
+				<a href="https://www.philadelphiafutures.org/" target="_blank" style="text-decoration: none;">
+					<img class="partner-image" src="/prep/img/philly-futures-logo.png" style="width: 178px; height: 217px" data-ix="icon-grow" />
 				</a>
 				<a href="http://letsgetready.org/" target="_blank">
-					<img src="/prep/img/lets-get-ready-logo.png" width="261" class="partner-image" data-ix="icon-grow">
+					<img class="partner-image" src="/prep/img/lets-get-ready-logo.png" style="width: 261px; height: 143px" data-ix="icon-grow" />
 				</a>
 			</div>
 		</div>
@@ -318,17 +319,35 @@
 			});
 		};
 
-		(function(d, s, id){
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) {return;}
-			js = d.createElement(s); js.id = id;
-			js.src = "https://connect.facebook.net/en_US/sdk.js";
-			fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
+		window.addEventListener('load', function() {
+			(function(d, s, id){
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) {return;}
+				js = d.createElement(s); js.id = id;
+				js.src = "https://connect.facebook.net/en_US/sdk.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		})
 	</script>
 	<!-- End Facebook Customer Chat Code -->
 
 
 	<!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+
+
+	<!-- Defered styles based on https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery -->
+	<script>
+	var loadDeferredStyles = function() {
+		var addStylesNode = document.getElementById("deferred-styles");
+		var replacement = document.createElement("div");
+		replacement.innerHTML = addStylesNode.textContent;
+		document.body.appendChild(replacement)
+		addStylesNode.parentElement.removeChild(addStylesNode);
+	};
+	//var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+	//window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+	//if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+	window.addEventListener('load', loadDeferredStyles);
+	</script>
 </body>
 </html>
