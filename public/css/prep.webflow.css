@@ -223,7 +223,7 @@ body {
 	clear: left;
 	border: 2px solid #fff;
 	border-radius: 10px;
-	background-color: #4c7eb2;
+	background-color: #035b9b;
 	font-size: 20px;
 }
 
@@ -731,7 +731,7 @@ body {
 }
 
 .nav-link.login:hover {
-	border-color: #fa4e09;
+	border-color: #fff;
 	border-radius: 6px;
 	background-color: #fa4e09;
 	color: #fff;
@@ -805,7 +805,7 @@ body {
 }
 
 .image-17 {
-	margin-top: 6px;
+	margin-top: 8px;
 }
 
 .tabgif {
