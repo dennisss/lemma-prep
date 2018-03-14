@@ -15,13 +15,6 @@ body {
 	background-size: 1500px;
 }
 
-.div-block {
-	padding-top: 0px;
-	background-image: url('/prep/img/untitled.jpg');
-	background-position: 0px 0px;
-	background-size: 1540px;
-}
-
 .heading {
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -735,11 +728,6 @@ body {
 	border-radius: 6px;
 	background-color: #fa4e09;
 	color: #fff;
-}
-
-.link-div {
-	padding-top: 5px;
-	padding-bottom: 5px;
 }
 
 .image-15 {
