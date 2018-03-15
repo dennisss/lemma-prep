@@ -160,6 +160,7 @@ body {
 .square-img {
 	position: relative;
 	padding-top: 100%;
+	margin: 0 auto;
 }
 .square-img img {
 	position: absolute;
@@ -207,18 +208,20 @@ body {
 .button-4 {
 	display: inline-block;
 	margin: 10px 20px;
-	padding: 10px 35px;
+	padding: 15px 80px;
 	float: none;
-	border: 2px solid #ff4416;
+	border: 2px solid #fff;
 	border-radius: 12px;
-	background-color: #fff;
-	color: #ff4416;
+	background-color: #fa4e09;
+	color: #fff;
 	font-size: 20px;
+	font-weight: 300;
 }
 
 .button-4:hover {
-	background-color: #ff4416;
-	color: #fff;
+	border-color: #fa4e09;
+	background-color: #fff;
+	color: #fa4e09;
 }
 
 .button-5 {
@@ -442,6 +445,7 @@ body {
 	font-weight: 300;
 	letter-spacing: 0px;
 	text-transform: uppercase;
+	animation-delay: .75s
 }
 
 .heading-19 {
@@ -783,8 +787,8 @@ body {
 
 .announcement-button {
 	margin-right: 0px;
-	padding-right: 50px;
-	padding-left: 50px;
+	padding-right: 40px;
+	padding-left: 40px;
 	border: 2px solid #fff;
 	border-radius: 12px;
 	background-image: -webkit-linear-gradient(270deg, #fa4e09, #fa4e09);
@@ -864,8 +868,8 @@ body {
 	.announcement-button {
 		display: inline-block;
 		margin-top: 0px;
-		padding-right: 30px;
-		padding-left: 30px;
+		padding-right: 20px;
+		padding-left: 20px;
 		float: none;
 	}
 }
@@ -880,15 +884,26 @@ body {
 		margin-bottom: 20px;
 		padding-right: 0px;
 	}
+	.button-4 {
+		display: block;
+		padding-right: 0px;
+		padding-left: 0px;
+		background-color: #fa4e09;
+		color: #fff;
+		font-size: 18px;
+	}
+	.button-4:active {
+		background-color: #fff;
+		color: #fa4e09;
+	}
 	.dif_block-heading {
 		margin-top: 0px;
 		margin-bottom: 30px;
 		font-size: 40px;
 	}
-	.lemdifimg {
+	.square-img {
 		width: 80%;
-		margin-right: 0%;
-		margin-left: 0%;
+		padding-top: 80%;
 	}
 	.hero {
 		margin-bottom: 20px;
@@ -906,6 +921,8 @@ body {
 	}
 	.text-block-3 {
 		padding-top: 30px;
+		padding-bottom: 30px;
+		font-size: 26px;
 	}
 	.heading-17 {
 		margin-top: 0px;
@@ -960,8 +977,11 @@ body {
 	}
 	.button-4 {
 		display: block;
+		padding-right: 0px;
+		padding-left: 0px;
 		background-color: #fa4e09;
 		color: #fff;
+		font-size: 18px;
 	}
 	.button-4:active {
 		background-color: #fff;
