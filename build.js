@@ -69,7 +69,9 @@ function imgMapper(i, el) {
 	var $el = $(el);
 
 	var src = $el.attr('src');
-	$el.attr('src', changeImageUrl(src));
+	if(src) {
+		$el.attr('src', changeImageUrl(src));
+	}
 
 	var srcset = $el.attr('srcset');
 	if(srcset) {
@@ -79,6 +81,11 @@ function imgMapper(i, el) {
 		}
 
 		$el.attr('srcset', parts.join(' '));
+	}
+
+	var deferedSrc = $el.attr('data-src');
+	if(deferedSrc) {
+		$el.attr('data-src', changeImageUrl(deferedSrc));
 	}
 }
 $('img').map(imgMapper);

@@ -157,6 +157,17 @@ body {
 	padding-bottom: 40px;
 }
 
+.square-img {
+	position: relative;
+	padding-top: 100%;
+}
+.square-img img {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+
 .lemdifimg {
 	border-radius: 10px;
 	box-shadow: 11px 11px 20px 0 rgba(0, 0, 0, .5);
