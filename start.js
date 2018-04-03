@@ -9,9 +9,9 @@ var app = express();
 
 app.use('/prep', express.static(__dirname + '/public'));
 
-app.use('/*', (req, res) => {
-	res.redirect('https://www.lem.ma' + req.originalUrl)
-})
+//app.use('/*', (req, res) => {
+//	res.redirect('https://www.lem.ma' + req.originalUrl)
+//})
 
 app.listen(8001, function() {
 	console.log('Running simple Lemma server listening on port 8001!')
