@@ -1,0 +1,40 @@
+.body {
+  font: Times;
+  margin: 2rem;
+  font-size: 2rem;
+}
+.kbd {
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.1em 0.5em;
+  margin: 0 0.2em;
+  box-shaddow: 0 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset;
+  background-color: #f7f7f7;
+  color: #ff4500;
+}
+
+.button {
+  display: inline-block;
+  margin: 10px 20px;
+  padding: 15px 80px;
+  float: none;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 300;
+  background-image: linear-gradient(to right, #fa4e09 0%, #e14608 51%, #fa4e09 100%);
+  background-image:-webkit-linear-gradient(to right, #fa4e09 0%, #e14608 51%, #fa4e09 100%);
+  background-image:-moz-linear-gradient(to right, #ca3f07 0%, #e14608 51%, #ca3f07 100%);
+  background-image:-o-linear-gradient(to right, #ca3f07 0%, #e14608 51%, #ca3f07 100%);
+  transition: all .5s ease;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  background-position: 100% 0;
+  background-size: 200% 200%;
+}
+
+.button:hover {
+  background-position: 0 0;
+}
