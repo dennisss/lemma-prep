@@ -7,7 +7,7 @@ var express = require('express'),
 
 var app = express();
 
-app.use('/prep', express.static(__dirname + '/public'));
+app.use('/', express.static(__dirname + '/public'));
 
 //app.use('/*', (req, res) => {
 //	res.redirect('https://www.lem.ma' + req.originalUrl)

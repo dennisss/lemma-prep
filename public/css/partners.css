@@ -8,7 +8,7 @@
   padding-right: 30px;
   padding-left: 30px;
   background-color: #fff;
-  background-image: url('../img/partners-hero.jpg');
+  background-image: url('/img/partners-hero-p-3200.jpeg');
   background-position: 0px 0px;
   background-size: cover;
   color: #fff;
@@ -178,7 +178,7 @@
 }
 
 .lgr-swap {
-  background-image: url('../img/lgr-greyscale.svg');
+  background-image: url('/img/lgr-greyscale.svg');
   background-position: 0px 0px;
   background-size: cover;
 }
@@ -190,7 +190,7 @@
 }
 
 .pf-swap {
-  background-image: url('../img/pf-greyscale.svg');
+  background-image: url('/img/pf-greyscale.svg');
   background-position: 0px 0px;
   background-size: cover;
 }
@@ -202,7 +202,7 @@
 }
 
 .nycares-swap {
-  background-image: url('../img/nycares-greyscale.svg');
+  background-image: url('/img/nycares-greyscale.svg');
   background-position: 0px 0px;
   background-size: cover;
   -webkit-transform: scale(1.1);
@@ -211,13 +211,13 @@
 }
 
 .opp-swap {
-  background-image: url('../img/oppnet-greyscale.svg');
+  background-image: url('/img/oppnet-greyscale.svg');
   background-position: 0px 0px;
   background-size: cover;
 }
 
 .opp-swap:hover {
-  background-image: url('../img/oppnet-greyscale.svg');
+  background-image: url('/img/oppnet-greyscale.svg');
   background-position: 0px 0px;
   background-size: cover;
 }
@@ -334,7 +334,7 @@
 .why-lemma-partnership {
   padding-top: 30px;
   padding-bottom: 30px;
-  background-image: url('../img/partnerback.jpg');
+  background-image: url('/img/partnerback.jpg');
   background-position: 0px 36px;
   background-size: cover;
 }
@@ -357,13 +357,13 @@
   display: block;
   width: 300px;
   border-radius: 12px;
-  box-shaddow: 2px 20px 6px 0 rgba(0, 0, 0, .5);
+  box-shadow: 2px 20px 6px 0 rgba(0, 0, 0, .5);
   text-align: center;
   transform: 300ms;
 
 }
 .lemdif-img:hover {
-  transform: scaleX(1.02) scaleY(1.02);"
+  transform: scaleX(1.02) scaleY(1.02);
 }
 
 .lemdif-img.partners {

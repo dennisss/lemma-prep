@@ -10,9 +10,9 @@
 	- Uploads to GCS at the very end
 
 	Outfiles are:
-	- index.html
-	- index.[hash].css
-	- index.[hash].js
+	- [abc].html
+	- [abc].[hash].css
+	- [abc].[hash].js
 	- img/*
 */
 
@@ -26,14 +26,14 @@ var fs = require('fs'),
 	URLRewriter = require("cssurl").URLRewriter,
 	child_process = require('child_process');
 
-var BASE_URL = 'https://storage.googleapis.com/lm-assets/prep/';
+var BASE_URL = 'https://storage.googleapis.com/lm-assets/pages/';
 
-var IMG_PREFIX = '/prep/img/'
-var IMG_URL = 'https://storage.googleapis.com/lm-assets/prep/img/'
+var IMG_PREFIX = '/img/'
+var IMG_URL = 'https://storage.googleapis.com/lm-assets/pages/img/'
 
-var CSS_PREFIX = '/prep/css/';
+var CSS_PREFIX = '/css/';
 
-var JS_PREFIX = '/prep/js/';
+var JS_PREFIX = '/js/';
 
 var cleancss_options = {
 
@@ -46,13 +46,6 @@ function hash(str) {
 	return crypto.createHash('md5').update(str).digest('hex').slice(0, 20);
 }
 
-console.log('Clean old');
-child_process.execSync('rm -r out; mkdir -p out');
-
-console.log('Load html');
-var $ = cheerio.load(fs.readFileSync(__dirname + '/public/index.html'));
-
-console.log('Read images');
 function changeImageUrl(s) {
 	if(s.indexOf(IMG_PREFIX) != 0) {
 		return s;
@@ -65,7 +58,25 @@ function changeImageUrl(s) {
 	return IMG_URL + filename + '?h=' + img_hash;
 }
 
-function imgMapper(i, el) {
+
+
+console.log('Clean old');
+child_process.execSync('rm -r out; mkdir -p out');
+
+
+var page_names = ['prep', 'partners']
+
+console.log('Load html');
+var pages = [];
+page_names.map((n) => {
+	pages.push(
+		cheerio.load(fs.readFileSync(__dirname + '/public/' + n + '.html'))
+	);
+})
+
+
+console.log('Read images');
+function imgMapper($, i, el) {
 	var $el = $(el);
 
 	var src = $el.attr('src');
@@ -88,91 +99,197 @@ function imgMapper(i, el) {
 		$el.attr('data-src', changeImageUrl(deferedSrc));
 	}
 }
-$('img').map(imgMapper);
-$('source').map(imgMapper);
+
+pages.map(($) => {
+	$('img').map((i, el) => imgMapper($, i, el));
+	$('source').map((i, el) => imgMapper($, i, el));
+});
+
 child_process.execSync('cp -r public/img out/')
 
 
+
+// TODO: Need to figure out how much of the css is common and how much is not common
 console.log('Read css');
-var css_first = null;
-var css_src = '';
-$('link').map((i, el) => {
-	var $el = $(el);
-	var href = $el.attr('href');
 
-	if(href.indexOf(CSS_PREFIX) != 0) {
-		return;
-	}
+var pages_cssrefs = [];
 
-	var filename = href.slice(CSS_PREFIX.length);
-	css_src += fs.readFileSync(__dirname + '/public/css/' + filename).toString('utf8') + '\n';
+pages.map(($) => {
+	var refs = [];
+	$('link').map((i, el) => {
+		var $el = $(el);
+		var href = $el.attr('href');
+	
+		if(href.indexOf(CSS_PREFIX) != 0) {
+			return;
+		}
+	
+		var filename = href.slice(CSS_PREFIX.length);
+		refs.push(filename);
+	});
 
-	if(css_first) {
-		$el.remove();
-	}
-	else {
-		css_first = $el;
-	}
+	pages_cssrefs.push(refs);
+
 })
 
 
 
-var rewriter = new URLRewriter(changeImageUrl);
-css_src = rewriter.rewrite(css_src);
+// Generate all css stuff
 
-// TODO: Also run through autoprefixer
-css_src = (new CleanCSS(cleancss_options).minify(css_src)).styles;
-var css_file = 'index.' + hash(css_src) + '.css';
-css_first.attr('href', BASE_URL + css_file);
-fs.writeFileSync(__dirname + '/out/' + css_file, css_src);
+// Determine which css files are common to all
+var common_cssrefs = [];
+pages_cssrefs.map((refs, i) => {
 
+	for(var j = 0; j < refs.length; j++) {
+		var r = refs[j];
 
+		var inall = true;
+		for(var k = 0; k < pages_cssrefs.length; k++) {
+			if(pages_cssrefs[k].indexOf(refs[j]) < 0) {
+				inall = false;
+				break;
+			}
+		}
 
+		if(inall) {
+			common_cssrefs.push(r);
+			for(var k = 0; k < pages_cssrefs.length; k++) {
+				pages_cssrefs[k].splice(pages_cssrefs[k].indexOf(r), 1);
+			}
 
-
-
-console.log('Read js');
-var js_first = null;
-var js_src = '';
-$('script').map((i, el) => {
-	var $el = $(el);
-	var src = $el.attr('src');
-
-	if(!src || src.indexOf(JS_PREFIX) != 0) {
-		return;
-	}
-
-	var filename = src.slice(JS_PREFIX.length);
-	js_src += fs.readFileSync(__dirname + '/public/js/' + filename).toString('utf8') + '\n';
-
-	if(js_first) {
-		$el.remove();
-	}
-	else {
-		js_first = $el;
+			j--;
+		}
+		else if(common_cssrefs.indexOf(r) >= 0) {
+			refs.splice(j, 1);
+			j--;
+		}
 	}
 });
 
+function bundleCss(name, arr) {
+	var css_src = '';
+	arr.map((filename) => {
+		css_src += fs.readFileSync(__dirname + '/public/css/' + filename).toString('utf8') + '\n';
+	})
 
-var r = UglifyJS.minify({
-    "file.js": js_src
-}, {});
-js_src = r.code;
+	var rewriter = new URLRewriter(changeImageUrl);
+	css_src = rewriter.rewrite(css_src);
 
-var js_file = 'index.' + hash(js_src) + '.js';
-js_first.attr('src', BASE_URL + js_file);
-fs.writeFileSync(__dirname + '/out/' + js_file, js_src);
+	// TODO: Also run through autoprefixer
+	css_src = (new CleanCSS(cleancss_options).minify(css_src)).styles;
+	var css_file = name + '.' + hash(css_src) + '.css';
+	fs.writeFileSync(__dirname + '/out/' + css_file, css_src);
+
+	return BASE_URL + css_file;
+}
+
+
+var common_cssfile = null;
+if(common_cssrefs.length > 0) {
+	common_cssfile = bundleCss('common', common_cssrefs);
+}
+
+var pages_cssfiles = pages_cssrefs.map((refs, i) => {
+	var arr = [];
+
+	if(common_cssfile) {
+		arr.push(common_cssfile);
+	}
+
+	if(refs.length > 0) {
+		arr.push(bundleCss(page_names[i], refs));
+	}
+
+	return arr;
+});
+
+
+// Generate a common file and a single css per page remaining
+
+// Insert back into each file
+pages.map(($, i) => {
+
+	var files = pages_cssfiles[i];
+	var filesIdx = 0;
+
+	$('link').map((i, el) => {
+		var $el = $(el);
+		var href = $el.attr('href');
+	
+		if(href.indexOf(CSS_PREFIX) != 0) {
+			return;
+		}
+		
+		// NOTE: This assumes that there are already enough css link tags in the file to hold all of the new css source files we are referencing
+		if(filesIdx >= files.length) {
+			$el.remove();
+		}
+		else {
+			$el.attr('href', files[filesIdx++]);
+		}
+	})
+})
+
+
+
+
+
+
+// TODO: currently only supports separate js files per page
+console.log('Read js');
+pages.map(($, i) => {
+
+	var js_first = null;
+	var js_src = '';
+	$('script').map((i, el) => {
+		var $el = $(el);
+		var src = $el.attr('src');
+	
+		if(!src || src.indexOf(JS_PREFIX) != 0) {
+			return;
+		}
+	
+		var filename = src.slice(JS_PREFIX.length);
+		js_src += fs.readFileSync(__dirname + '/public/js/' + filename).toString('utf8') + '\n';
+	
+		if(js_first) {
+			$el.remove();
+		}
+		else {
+			js_first = $el;
+		}
+	});
+	
+	if(js_src.length == 0) {
+		return;
+	}
+	
+	var r = UglifyJS.minify({
+		"file.js": js_src
+	}, {});
+	js_src = r.code;
+	
+	var js_file = 'main.' + hash(js_src) + '.js';
+	js_first.attr('src', BASE_URL + js_file);
+	fs.writeFileSync(__dirname + '/out/' + js_file, js_src);
+
+});
+
 
 console.log('Write html');
-// TODO: minify html
-var html = htmlminify($.html(), {
-	keepClosingSlash: true,
-	removeComments: true,
-	collapseWhitespace: true,
-	minifyCSS: true,
-	minifyJS: true,
+pages.map(($, i) => {
+	var name = page_names[i];
+
+	var html = htmlminify($.html(), {
+		keepClosingSlash: true,
+		removeComments: true,
+		collapseWhitespace: true,
+		minifyCSS: true,
+		minifyJS: true,
+	})
+	fs.writeFileSync(__dirname + '/out/' + name + '.html', html);
 })
-fs.writeFileSync(__dirname + '/out/index.html', html);
+
 
 console.log('Copying to gcs')
-child_process.execSync('gsutil -m cp -z html,js,css,svg -r out/* gs://lm-assets/prep/')
+child_process.execSync('gsutil -m cp -z html,js,css,svg -r out/* gs://lm-assets/pages/')
