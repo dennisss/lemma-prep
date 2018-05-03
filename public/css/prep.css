@@ -187,7 +187,7 @@ body {
 	padding-bottom: 0px;
 	float: left;
 	color: #fff;
-	font-size: 24px;
+	font-size: 20px;
 	font-weight: 300;
 	text-align: center;
 	text-shadow: 1px 1px 10px #000000;
@@ -250,8 +250,8 @@ body {
 .partner-image {
 	height: 200px;
 	width: 200px;
-	padding-left: 20px;
-	padding-right: 20px;
+	padding-left: 30px;
+	padding-right: 30px;
 }
 
 .heading-17 {
@@ -639,6 +639,7 @@ body {
 	.call-2 {
 		float: none;
 		margin-bottom: 20px;
+		font-size: 22px;
 	}
 	.button-6 {
 		display: block;

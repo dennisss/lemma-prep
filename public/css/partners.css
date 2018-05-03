@@ -41,12 +41,13 @@
   -webkit-flex: 0 auto;
   -ms-flex: 0 auto;
   flex: 0 auto;
+  transition: .5s; 
 }
 
 .partnerimg:hover {
-  -webkit-transform: scale(1.01);
-  -ms-transform: scale(1.01);
-  transform: scale(1.01);
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
 
 }
 
@@ -74,7 +75,7 @@
 
 .partner-heading {
   margin-top: 0px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   font-weight: 300;
   text-align: center;
   letter-spacing: 2px;
@@ -116,6 +117,14 @@
   margin-top: 0px;
   margin-bottom: 20px;
   text-align: right;
+  text-decoration: underline;
+}
+
+.partner-name-left {
+  margin-top: 0px; 
+  margin-bottom: 20px; 
+  text-align: left; 
+  text-decoration: underline;
 }
 
 .paragraph {
@@ -183,40 +192,18 @@
   background-size: cover;
 }
 
-.lgr-swap:hover {
-  -webkit-transform: none;
-  -ms-transform: none;
-  transform: none;
-}
-
 .pf-swap {
   background-image: url('/img/pf-greyscale.svg');
   background-position: 0px 0px;
   background-size: cover;
 }
-
-.pf-swap:hover {
-  -webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
 .nycares-swap {
   background-image: url('/img/nycares-greyscale.svg');
   background-position: 0px 0px;
   background-size: cover;
-  -webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
 }
 
 .opp-swap {
-  background-image: url('/img/oppnet-greyscale.svg');
-  background-position: 0px 0px;
-  background-size: cover;
-}
-
-.opp-swap:hover {
   background-image: url('/img/oppnet-greyscale.svg');
   background-position: 0px 0px;
   background-size: cover;
@@ -362,9 +349,6 @@
   transform: 300ms;
 
 }
-.lemdif-img:hover {
-  transform: scaleX(1.02) scaleY(1.02);
-}
 
 .lemdif-img.partners {
   margin-right: auto;
@@ -378,6 +362,7 @@
   font-size: 24px;
   font-weight: 300;
   font-weight: bold;
+  padding-left: 20px;
 }
 
 .diftext {
@@ -552,6 +537,7 @@
 
 .tutorial-link {
   text-align: center;
+  padding-left: 40px; 
 }
 nav-link {
 	border: 4px solid transparent;
@@ -594,17 +580,26 @@ nav-link {
     margin-bottom: 30px;
   }
   .hero-button {
-    margin-bottom: 60px;
-    padding: 10px 40px;
+    margin-bottom: 30px;
     text-align: center;
   }
   .partner-button {
     padding: 20px 5px;
-    font-size: 12px;
+    font-size: 16px;
     text-align: center;
+  }
+  .partner-button-2 {
+    margin-left: 20px; 
+    font-size: 16px; 
+    text-align: center;
+    padding: 20px 5px; 
   }
   .lemdif-img {
     text-align: center;
+    margin-left: 0px;
+    box-shadow: none;
+    padding-top: 10px; 
+    padding-bottom: 10px; 
   }
   .difrow {
     -webkit-box-pack: start;
@@ -619,7 +614,7 @@ nav-link {
     padding-left: 20px;
   }
   .hero-tag {
-    margin-top: 159px;
+    margin-top: 240px; 
   }
   .hero-desc {
     margin-top: 20px;
@@ -718,8 +713,8 @@ nav-link {
     margin-bottom: 20px;
   }
   .icons-wrap {
-    padding-right: 30px;
-    padding-left: 30px;
+    padding-right: 20px;
+    padding-left: 20px;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
@@ -769,8 +764,12 @@ nav-link {
     padding-top: 0px;
     padding-bottom: 0px;
   }
+  .button-wrap {
+    padding-bottom: 20px; 
+  }
   .hero-button {
-    display: inline-block;
+    width: auto; 
+    display: block;
   }
   .from-them-1 {
     text-align: left;
@@ -781,9 +780,15 @@ nav-link {
   .partner-button {
     margin-top: 10px;
     margin-bottom: 10px;
-    padding-right: 0px;
-    padding-left: 0px;
-    font-size: 12px;
+    padding: 20px 5px; 
+    font-size: 18px;
+  }
+  .partner-button-2 {
+    margin-left: 0px; 
+    font-size: 18px; 
+    text-align: center;
+    padding: 20px 5px; 
+    width: auto; 
   }
   .partner-button-wrap {
     -webkit-box-orient: vertical;
@@ -829,14 +834,10 @@ nav-link {
     -ms-flex-direction: column;
     flex-direction: column;
   }
-  .contact-us-button {
-    display: inline-block;
-    margin-top: 20px;
-    padding-right: 80px;
-    padding-left: 80px;
-    float: none;
-    font-size: 22px;
-    text-align: left;
+  .contact-us-button { 
+    width: 100%; 
+    padding: 20px 5px; 
+    margin-right: 0px; 
   }
   .call {
     text-align: center;
