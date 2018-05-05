@@ -28,11 +28,6 @@
   margin-bottom: 0px;
   padding-top: 60px;
   padding-bottom: 0px;
-  border-style: none none solid;
-  border-top-width: 1px;
-  border-top-color: rgba(0, 0, 0, .5);
-  border-bottom-width: 1px;
-  border-bottom-color: rgba(0, 0, 0, .5);
 }
 
 .partnerimg {
@@ -454,7 +449,7 @@
 }
 
 .partner-call {
-  margin-top: 80px;
+  margin-top: 60px;
   margin-bottom: 60px;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -463,13 +458,16 @@
 	background-image: -moz-linear-gradient(60deg, #09b9e4 0%, #0048bb 100%);
 	background-image:-o-linear-gradient(60deg, #09b9e4 0%, #0048bb 100%);
   box-shadow: 10px 0 20px 2px rgba(0, 0, 0, .5);
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .contact-us-button {
   padding-right: 60px;
   padding-left: 60px;
-  float: right;
   border-radius: 12px;
+  padding-top: 12px;
+  margin-right: 30px;
   background-image: linear-gradient(to right, #fa4e09 0%, #e14608 51%, #fa4e09 100%);
 	transition: all .5s ease;
 	-webkit-transition: all .5s ease;
@@ -477,8 +475,7 @@
 	-o-transition: all .5s ease;
 	background-position: 100% 0;
 	background-size: 200% 200%;
-  font-size: 20px;
-  margin-right:40px;
+  font-size: 22px;
 }
 
 .contact-us-button:hover {
@@ -492,6 +489,7 @@
   color: #fff;
   font-size: 22px;
   font-weight: 500;
+  margin-left: 30px;
 }
 
 .container-2 {
@@ -627,7 +625,7 @@ nav-link {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .partner-section-1 {
     padding-top: 20px;
   }
@@ -664,6 +662,9 @@ nav-link {
     margin-bottom: 0px;
     padding: 10px 0px;
     text-align: center;
+  }
+  .hero-section {
+    padding-bottom: 20px; 
   }
   .from-them-1 {
     text-align: center;
@@ -702,6 +703,21 @@ nav-link {
   .phone-part-img {
     display: block;
     text-align: center;
+  }
+  .partner-call {
+    flex-direction: column; 
+    align-items: center;
+  }
+  .call {
+    margin-left: 0px; 
+    text-align: center;
+  }
+  .contact-us-button {
+    margin-right: 0px; 
+    margin-top: 12px;
+    text-align: center; 
+    font-size: 24px; 
+    width: 80%;
   }
 }
 
