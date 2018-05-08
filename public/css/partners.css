@@ -463,8 +463,8 @@
 }
 
 .contact-us-button {
-  padding-right: 60px;
-  padding-left: 60px;
+  padding-right: 70px;
+  padding-left: 70px;
   border-radius: 12px;
   padding-top: 12px;
   margin-right: 30px;
@@ -510,19 +510,21 @@
 }
 
 .hero-desc {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-size: 20px;
+  margin-top: 22px;
+  margin-bottom: 22px;
+  font-size: 22px;
   text-align: center;
   text-shadow: 1px 1px 16px #000;
 }
 
 .hero-intro {
-  padding-top: 40px;
-  font-size: 40px;
-  letter-spacing: 2px;
-  text-align: center;
-  text-shadow: 1px 1px 4px #000;
+  padding-top: 50px; 
+  font-size: 50px; 
+  font-weight: 400; 
+  letter-spacing: 2px; 
+  text-align: center; 
+  text-shadow: 1px 2px 10px #2F4F4F; 
+  margin-top: 0px; 
 }
 
 .div-block-7.comp {
@@ -566,6 +568,14 @@ nav-link {
 	color: #fff;
 }
 
+@media (max-width: 1024px) {
+  .hero-intro {
+  font-size: 40px; 
+  }
+  .hero-desc {
+    font-size: 20px; 
+  }
+}
 @media (max-width: 991px) {
   .hero-section {
     background-position: 50% 0px;
@@ -585,12 +595,14 @@ nav-link {
     padding: 20px 5px;
     font-size: 16px;
     text-align: center;
+    line-height: 20px; 
   }
   .partner-button-2 {
     margin-left: 20px; 
     font-size: 16px; 
     text-align: center;
     padding: 20px 5px; 
+    line-height: 20px; 
   }
   .lemdif-img {
     text-align: center;
@@ -658,10 +670,10 @@ nav-link {
     display: none;
   }
   .hero-button {
-    display: block;
     margin-bottom: 0px;
     padding: 10px 0px;
     text-align: center;
+    width: 75%;
   }
   .hero-section {
     padding-bottom: 20px; 
@@ -696,6 +708,8 @@ nav-link {
   .hero-desc {
     font-size: 16px;
     line-height: 22px;
+    margin-top: 10px;
+
   }
   .hero-intro {
     font-size: 26px;
@@ -850,8 +864,11 @@ nav-link {
     -ms-flex-direction: column;
     flex-direction: column;
   }
+  .partner-call {
+    margin-top: 10px; 
+  }
   .contact-us-button { 
-    width: 100%; 
+    width: 90%; 
     padding: 20px 5px; 
     margin-right: 0px; 
   }
