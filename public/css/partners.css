@@ -316,8 +316,8 @@
 .why-lemma-partnership {
   padding-top: 30px;
   padding-bottom: 30px;
-  background-image: url('/img/partnerback.jpg');
-  background-position: 0px 36px;
+  background-image: url('/img/partnerback2.jpg');
+  background-position: 0px 40px;
   background-size: cover;
 }
 
@@ -854,7 +854,6 @@ nav-link {
     -webkit-flex-direction: column-reverse;
     -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
-    border-top: 2px solid rgba(0, 0, 0, .5);
     text-align: center;
   }
   .container {
