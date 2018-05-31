@@ -137,7 +137,7 @@
 							<div class="w-col w-col-7">
 								<div class="tabgif">
 									<img src="/img/comp-bar.svg" style="width: 400px; height: 25px; display: block;" />
-									<video autoplay="autoplay" loop="loop" width="400" height="300">
+									<video loop="loop" width="400" height="300">
 										<source data-src="/img/pedagogy.mp4" type="video/mp4" />
 										<!--<img src="/img/pedagogy.gif" width="400" height="300" />-->
 									</video>
@@ -158,7 +158,7 @@
 							<div class="w-col w-col-7">
 								<div class="tabgif">
 									<img src="/img/comp-bar.svg" style="width: 400px; height: 25px;" />
-									<video autoplay="autoplay" loop="loop" width="400" height="300" >
+									<video loop="loop" width="400" height="300" >
 										<source data-src="/img/ask-a-q.mp4" type="video/mp4" />
 										<!--<img src="/img/ask-a-q.gif" width="400" height="300" />-->
 									</video>
@@ -179,7 +179,7 @@
 							<div class="w-col w-col-7">
 								<div class="tabgif">
 									<img src="/img/comp-bar.svg" style="width: 400px; height: 25px;" />
-									<video autoplay="autoplay" loop="loop" width="400" height="300">
+									<video loop="loop" width="400" height="300">
 										<source data-src="/img/platform.mp4" type="video/mp4" />
 										<!--<img src="/img/platform.gif" width="400" height="300" />-->
 									</video>
@@ -353,12 +353,15 @@
 					return;
 				}
 
-				$(window).off('scroll', onscroll);
+				// Mainly because below we can only load videos in the cycle of an example in order to bypass autoplay blocking of browsers 
+				if(e) {
+					$(window).off('scroll', onscroll);
+				}
 
 				$('[data-src]').map(function(i, el) {
 					$(el).attr('src', $(el).attr('data-src'));
 
-					if($(el).prop('tagName').toLowerCase() == 'source') {
+					if($(el).prop('tagName').toLowerCase() == 'source' && e) {
 						var vid = el.parentNode;
 						setTimeout(function() {
 							vid.load();
