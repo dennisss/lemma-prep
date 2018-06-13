@@ -13,6 +13,7 @@
 	<meta property="og:image" content="https://www.lem.ma/images/og_img.jpg">
 	<title>Lemma - Your Math Tutor</title>
 
+	<link rel="shortcut icon" href="/favicon.ico">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700,700i&subset=greek,latin" rel="stylesheet" type="text/css">
 	<noscript id="deferred-styles">
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -348,28 +349,36 @@
 	<script>
 		(function() {
 
+			var phase = 1;
+
 			function onscroll(e) {
 				if(window.scrollY < $('.hero').height()) {
 					return;
 				}
 
 				// Mainly because below we can only load videos in the cycle of an example in order to bypass autoplay blocking of browsers 
-				if(e) {
-					$(window).off('scroll', onscroll);
+				if(phase == 2) {
+					$('[data-src]').map(function(i, el) {
+						if($(el).prop('tagName').toLowerCase() == 'source' && e) {
+							var vid = el.parentNode;
+							vid.load();
+							vid.play()
+						}
+					});
+
+
+					if(e) {
+						$(window).off('scroll', onscroll);
+					}
 				}
+
+				
 
 				$('[data-src]').map(function(i, el) {
 					$(el).attr('src', $(el).attr('data-src'));
-
-					if($(el).prop('tagName').toLowerCase() == 'source' && e) {
-						var vid = el.parentNode;
-						setTimeout(function() {
-							vid.load();
-							vid.play()
-						});
-					}
 				});
 
+				phase = 2;
 			}
 
 			$(window).on('scroll', onscroll);
