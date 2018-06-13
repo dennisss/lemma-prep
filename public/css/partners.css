@@ -385,8 +385,8 @@
   -ms-flex-align: center;
   align-items: center;
   border-radius: 20px;
-  background-image: -webkit-linear-gradient(270deg, hsla(0, 0%, 100%, .8), hsla(0, 0%, 100%, .9));
-  background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .8), hsla(0, 0%, 100%, .9));
+  background-image: -webkit-linear-gradient(270deg, hsla(0, 0%, 100%, .95), hsla(0, 0%, 100%, .95));
+  background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .8), hsla(0, 0%, 100%, .95));
   box-shadow: 1px 1px 12px 0 rgba(0, 0, 0, .5);
 }
 
