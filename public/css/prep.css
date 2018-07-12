@@ -457,6 +457,7 @@ body {
 	border: 4px solid transparent;
 	font-weight: 300;
 	text-decoration: none;
+	transition: .3s;
 }
 
 .nav-link:hover {
