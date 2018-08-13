@@ -1,3 +1,9 @@
+/* TODO: reveal KIPP when they give contract */
+
+.kipp {
+  display: none;
+}
+
 .navbar {
   background-color: #fff
 }
@@ -65,7 +71,7 @@
   -webkit-box-align: start;
   -webkit-align-items: flex-start;
   -ms-flex-align: start;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .partner-heading {
@@ -204,9 +210,24 @@
   background-size: cover;
 }
 
+.btny-swap {
+  background-image: url('/img/btny-greyscale.png');
+  background-position: 0px 0px;
+  background-size: cover;
+}
+
+.kipp-swap {
+  background-image: url('/img/kipp-greyscale.svg');
+  background-position: 0px 0px;
+  background-size: cover;
+}
+
+
 .part-hover {
   opacity: 0;
   transition: .5s;
+  height: 100; 
+  width: 100;
 }
 
 .part-hover:hover {
@@ -316,8 +337,8 @@
 .why-lemma-partnership {
   padding-top: 30px;
   padding-bottom: 30px;
-  background-image: url('/img/partnerback2.jpg');
-  background-position: 0px 40px;
+  background-image: url('/img/partnerback3.svg');
+  background-position: 0px 1px;
   background-size: cover;
 }
 
@@ -539,10 +560,12 @@
   text-align: center;
   padding-left: 40px; 
 }
-nav-link {
+
+.nav-link {
 	border: 4px solid transparent;
 	font-weight: 300;
-	text-decoration: none;
+  text-decoration: none;
+  transition: .3s;
 }
 
 .nav-link:hover {
@@ -563,7 +586,7 @@ nav-link {
 
 .nav-link.login:hover {
 	border-color: #fff;
-	border-radius: 6px;
+	border-radius: 2px;
 	background-color: #fa4e09;
 	color: #fff;
 }
