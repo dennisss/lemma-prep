@@ -26,10 +26,10 @@ var fs = require('fs'),
 	URLRewriter = require("cssurl").URLRewriter,
 	child_process = require('child_process');
 
-var BASE_URL = 'https://storage.googleapis.com/lm-assets/pages/';
+var BASE_URL = 'https://a.lemm.app/pages/';
 
 var IMG_PREFIX = '/img/'
-var IMG_URL = 'https://storage.googleapis.com/lm-assets/pages/img/'
+var IMG_URL = 'https://a.lemm.app/pages/img/'
 
 var CSS_PREFIX = '/css/';
 
@@ -64,7 +64,7 @@ console.log('Clean old');
 child_process.execSync('rm -r out; mkdir -p out');
 
 
-var page_names = ['prep', 'partners']
+var page_names = ['prep', 'partners', 'pricing']
 
 console.log('Load html');
 var pages = [];
