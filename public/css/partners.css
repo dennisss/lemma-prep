@@ -1,3 +1,7 @@
+.step {
+  display: none;
+}
+
 .navbar {
   background-color: #fff
 }
@@ -222,6 +226,12 @@
   background-size: cover;
 }
 
+.step-swap {
+  background-image: url('/img/step-greyscale.svg');
+  background-position: 0px 0px;
+  background-size: cover;
+}
+
 .part-hover {
   opacity: 0;
   transition: .5s;
@@ -337,7 +347,6 @@
   padding-top: 30px;
   padding-bottom: 30px;
   background-image: url('/img/partnerback3.svg');
-  background-position: 0px 1px;
   background-size: cover;
 }
 
