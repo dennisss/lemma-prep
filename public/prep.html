@@ -244,8 +244,8 @@
 							</tbody>
 						</table>
 						<br />
-						<!-- TODO: Make dynamic -->
-						<span>&copy; 2019 Lemma, Inc.</span>
+						<span>&copy; <span id="year"></span> Lemma, Inc.</span>
+						<script>document.getElementById('year').innerText = (new Date()).getFullYear();</script>
 					</div>
 				</div>
 				<div class="w-col w-col-4">
