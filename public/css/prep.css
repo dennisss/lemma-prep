@@ -1,6 +1,3 @@
-.step {
-	display: none;
-}
 body {
 	font-family: Roboto, Arial, 'Helvetica Neue', Helvetica, sans-serif;
 	font-weight: 400;
@@ -189,7 +186,6 @@ body {
 	margin-bottom: 8px;
 	padding-top: 0px;
 	padding-bottom: 0px;
-	float: left;
 	color: #fff;
 	font-size: 20px;
 	font-weight: 300;
@@ -202,6 +198,7 @@ body {
 	margin-left: 0px;
 	padding-right: 0px;
 	padding-left: 0px;
+	padding-top: 18px;
 	float: right;
 	border-radius: 12px;
 	color: #fff;
@@ -601,6 +598,18 @@ body {
 	background-position: 0 0;
 }
 
+.call-2-wrapper { 
+	display: -webkit-flex; 
+	display: -ms-flexbox; 
+	display: flex;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+}
+
 @media (max-width: 991px) {
 	.heading-7 {
 		padding-top: 2px;
@@ -670,7 +679,6 @@ body {
 		margin-bottom: 20px;
 	}
 	.call-2 {
-		float: none;
 		margin-bottom: 20px;
 		font-size: 22px;
 	}
@@ -681,7 +689,6 @@ body {
 		padding-bottom: 20px;
 		float: none;
 		text-align: center;
-		padding-top: 20px;
 	}
 	.text-block-3 {
 		padding-top: 30px;
