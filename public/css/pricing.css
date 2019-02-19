@@ -10,8 +10,8 @@
   display: flex;
   margin-top: 30px;
   margin-bottom: 60px;
-  margin-right: 90px;
-  margin-left: 90px;
+  margin-right: 320px;
+  margin-left: 320px;
   -webkit-justify-content: space-around;
   -ms-flex-pack: distribute;
   justify-content: space-around;
@@ -50,13 +50,12 @@
 
 .pricing-product {
   width: 370px;
-  padding-top: 90px;
+  background: #efefef; 
+  border-radius: 6px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
-.pricing-product-m{
-  width: 370px;
-  background: #efefef
-}
 .pricing-hero {
   text-align: center;
 }
@@ -121,7 +120,9 @@
 }
 
 .pricing-top {
-  height:8px;}
+  height:8px;
+  border-radius: 6px 6px 0px 0px;
+}
 
 .pricing-productname {
   border-style: none;
@@ -154,7 +155,7 @@
   margin-bottom: 0px;
   border-top: 1px solid rgba(5, 2, 2, 0.2);
   border-bottom: 1px solid rgba(0, 0, 0, .2);
-  height: 260px;
+  height: 200px;
 }
 
 .blue{
@@ -176,16 +177,6 @@
   background-image: -webkit-linear-gradient(60deg, #e5a900 0%, #f1cd0d 100%);
   background-image: -moz-linear-gradient(60deg, #e5a900 0%, #f1cd0d 100%);
   background-image:-o-linear-gradient(60deg, #e5a900 0%, #f1cd0d 100%);
-}
-
-.pricing-product-desc {
-  margin-bottom: 0px;
-  padding: 15px 10px;
-  color: #6b6767;
-  font-size: 18px;
-  line-height: 24px;
-  height: 100px;
-  display: inline-block; 
 }
 
 .pricing-price {
@@ -216,7 +207,8 @@
 
 .pricing-button {
   color: white; 
-  padding: 12px 50px;
+  padding: 16px 60px;
+  margin-top: 20px;
   border-radius: 10px; 
   font-size: 18px;
   font-weight: 300; 
@@ -291,9 +283,6 @@
   .pricing-product {
     width:260px;
   }
-  .pricing-product-m{
-    width: 340;
-  }
 }
 
 @media (max-width: 991px) {
@@ -303,12 +292,6 @@
   }
   .pricing-productname {
     font-size: 30px;
-  }
-  .pricing-product-desc {
-    font-size: 16px;
-  }
-  .pricing-product-m{
-    width:320px;
   }
   .pricing-product{
     width:260px;
@@ -345,14 +328,6 @@
     flex-grow: 1; 
     width: auto; 
     padding: 0px;
-  }
-  .pricing-product-m {
-    display:flex; 
-    flex-direction: column; 
-    align-items: center; 
-    flex-grow: 1; 
-    padding: 0px; 
-    width: auto; 
   }
   .pricing-button {
     width: 100%;

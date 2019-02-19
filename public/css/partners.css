@@ -1,6 +1,7 @@
 .navbar {
   background-color: #fff
 }
+
 .nav-menu {
 	margin-top: 2px;
 }
@@ -595,6 +596,10 @@
 	border-radius: 2px;
 	background-color: #fa4e09;
 	color: #fff;
+}
+
+.image-17 {
+	margin-top: 8px;
 }
 
 @media (max-width: 1024px) {

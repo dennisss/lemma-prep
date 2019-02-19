@@ -52,7 +52,7 @@ body {
 	margin-bottom: 40px;
 	padding-top: 0px;
 	padding-right: 30px;
-	padding-left: 0px;
+	padding-left: 30px;
 }
 
 .dif_block-heading {
@@ -191,6 +191,7 @@ body {
 	font-weight: 300;
 	text-align: center;
 	text-shadow: 1px 1px 10px #000000;
+	line-height: normal;
 }
 
 .button-6 {
@@ -239,9 +240,10 @@ body {
 }
 
 .text-block-3 {
-	padding-top: 20px;
+	padding-top: 24px;
 	color: #fff;
-	font-size: 16px;
+	font-size: 20px;
+	line-height: normal;
 }
 
 .row-3 {
@@ -294,10 +296,11 @@ body {
 }
 
 .heading-21 {
-	display: block;
-	margin-top: 0px;
-	margin-bottom: 40px;
+	font-size: 24px;
 	font-weight: 300;
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 40px;
 }
 
 .heading-22 {
@@ -638,9 +641,6 @@ body {
 	}
 	.heading-19 {
 		font-size: 46px;
-	}
-	.heading-21 {
-		font-size: 22px;
 	}
 	.announcement-text {
 		padding-top: 10px;
